@@ -1,3 +1,5 @@
+This is a fork to support Dropwizard db-configs
+
 PostgreSQL plugin for Dokku
 ---------------------------
 
@@ -49,6 +51,15 @@ $ ssh dokku@server postgresql:create foo # Client side
        Password: 'RDSBYlUrOYMtndKb'
        Database: 'db'
        Public port: 49187
+```
+
+These environment variables are created for your application:
+```
+$DATABASE_FULL_URL=postgres://root:RDSBYlUrOYMtndKb@172.17.42.1:49187/db //same as DATABASE_URL in Kloadut's version
+$DATABASE_URL=jdbc:postgresql://172.17.42.1:49187/db"
+$DATABASE_PORT=49187
+$DATABASE_USER=root
+$DATABASE_PASSWORD=RDSBYlUrOYMtndKb
 ```
 
 Deploy your app with the same name (client side):
@@ -112,7 +123,7 @@ Restore a database:
 dokku postgresql:restore foo < foo.sql
 ```
 
-In case Dokku says `pg_dump not found` when dumping or restoring database: 
+In case Dokku says `pg_dump not found` when dumping or restoring database:
 ```
 sudo apt-get install postgresql-client-9.3
 ```
