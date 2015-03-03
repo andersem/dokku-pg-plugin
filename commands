@@ -174,7 +174,6 @@ case "$1" in
     echo "       Database: 'db'"
     echo
     echo "       Url: 'postgres://root:$DB_PASSWORD@$IP:$PORT/db'"
-    echo "       Url: 'jdbc:postgresql://root:$DB_PASSWORD@172.17.42.1:$PORT/db'"
     echo
     ;;
 
@@ -196,7 +195,6 @@ case "$1" in
         # Link database using dokku command
         dokku config:set $APP "DATABASE_URL=postgres://root:$DB_PASSWORD@$IP:$PORT/db"
         dokku config:set $APP "DATABASE_FULL_URL=postgres://root:$DB_PASSWORD@172.17.42.1:$PORT/db"
-        dokku config:set $APP "DATABASE_URL=jdbc:postgresql://172.17.42.1:$PORT/db"
         dokku config:set $APP "DATABASE_PORT=$PORT"
         dokku config:set $APP "DATABASE_USER=root"
         dokku config:set $APP "DATABASE_PASSWORD=$DB_PASSWORD"
