@@ -194,6 +194,10 @@ case "$1" in
         PORT=$(get_postgresql_port)
         # Link database using dokku command
         dokku config:set $APP "DATABASE_URL=postgres://root:$DB_PASSWORD@$IP:$PORT/db"
+        dokku config:set $APP "DATABASE_HOST=$IP"
+        dokku config:set $APP "DATABASE_PORT=$PORT"
+        dokku config:set $APP "DATABASE_USER=root"
+        dokku config:set $APP "DATABASE_PASSWORD=$DB_PASSWORD"
         echo
         echo "-----> $APP linked to $DB_IMAGE database"
     fi
