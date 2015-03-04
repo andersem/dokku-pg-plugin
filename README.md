@@ -51,6 +51,14 @@ $ ssh dokku@server postgresql:create foo # Client side
        Public port: 49187
 ```
 
+These environment variables are created for your application:
+```
+$DATABASE_URL=postgres://root:RDSBYlUrOYMtndKb@172.17.42.1:49187/db
+$DATABASE_HOST=172.17.42.1
+$DATABASE_PORT=49187
+$DATABASE_USER=root
+$DATABASE_PASSWORD=RDSBYlUrOYMtndKb
+
 Deploy your app with the same name (client side):
 ```
 $ git remote add dokku git@server:foo
